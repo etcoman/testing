@@ -11,6 +11,7 @@ jobs:
         with:
           script: |
             github.issues.createComment({
-              ...context.issue,
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
               body: 'Your pull request was merged 🎉 It will be deployed in ~24 hours.'
             })
